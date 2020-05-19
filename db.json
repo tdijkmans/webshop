@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Tulip",
+      "tags": ["Dutch"],
+      "description": "a flower",
+      "price": 10,
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/%D7%A6%D7%91%D7%A2%D7%95%D7%A0%D7%99%D7%9D.JPG/1280px-%D7%A6%D7%91%D7%A2%D7%95%D7%A0%D7%99%D7%9D.JPG"
+    }
+  ]
+}
