@@ -7,8 +7,7 @@ export default function Product(props) {
 
   return (
     <div>
-      <Link to="product/${props.id}">
-        {/* LINK NOT YET WORKING */}
+      <Link to={`product/${props.id}`}>
         <h3>{props.name}</h3>
       </Link>
       {tags}
