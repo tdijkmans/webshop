@@ -3,10 +3,42 @@
     {
       "id": 1,
       "name": "Tulip",
-      "tags": ["Dutch"],
-      "description": "a flower",
+      "tags": ["Dutch", "Different Colors"],
+      "description": "Single flowers have six petals. Flower variations include lily-flowering types, double flowers, fringed petals and ruffly parrot varieties. Colors include white, yellow, pink, peach, orange, red, lavender, purple and bi-colors. Vase life is up to seven days.",
       "price": 10,
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/%D7%A6%D7%91%D7%A2%D7%95%D7%A0%D7%99%D7%9D.JPG/1280px-%D7%A6%D7%91%D7%A2%D7%95%D7%A0%D7%99%D7%9D.JPG"
+    },
+    {
+      "id": 2,
+      "name": "Lily",
+      "tags": ["Asiatic lily", "Oriental lily", "Toxic to Cats"],
+      "description": "Trumpet-shaped flowers grow to a 6-inch diameter. Stems grow to 3 feet long, carrying four to eight blossoms. Sparse foliage is dark green. Because blooms open at various times, most lilies live one to two weeks. Colors include white, yellow, pink, red and orange; many have a deeper color (freckles) on the inner petal.",
+      "price": 3,
+      "img": "https://aboutflowers.com/wp-content/uploads/2017/01/AboutFlowers_Lily_Paradero-19.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Carnation",
+      "tags": ["The Flowers of God", "Eurasia", "Dianthus"],
+      "description": "Flowers are 2 to 3 inches wide on 1- to 2-foot stems. Miniature carnation varieties feature several small flowers on one stem. Colors include white, yellow, pink, red, salmon, fuchsia, deep purple, light green, bi-colors and flecked. The fragrant cut flowers live up to three weeks. Carnations are also popular as potted plants because of their long blooming season.",
+      "price": 5,
+      "img": "https://aboutflowers.com/wp-content/uploads/2016/10/AboutFlowers_S600carnation_Dianthus-Alcazar-Du%CC%88mmenOrange.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Gladiolus",
+      "tags": ["Gladioli", "Remembrance", "Infatuation"],
+      "description": "Tall, tightly packed spikes of six to eight blossoms open in sequence from the bottom. The 2- to 8-inch-wide florets bloom in one direction with sword shaped foliage on stems. Gladioli lend itself to almost any type of style from the use of a full stem to provide height to a tall arrangement or individual florets for corsage and wedding work. Gladiolus last seven to 10 days and are available in a wide variety of colors including white, green, cream, yellow, buff, orange, salmon, pink, red, lavender, purple, blue and terra cotta.",
+      "price": 9.99,
+      "img": "https://aboutflowers.com/wp-content/uploads/2017/01/AboutFlowers_Gladiolus_WhiteCascade.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Rose",
+      "tags": ["Love", "Native to China"],
+      "description": "With almost 120 varieties available, roses are a classic favorite. Roses span the color spectrum with varieties available in all shades of reds, pinks, purples, oranges, corals, peaches and whites. Tea roses open 3 to 4 inches. Stems can be 12 — 30 inches. Spray roses can have several flowers on one stem. Depending on the variety, roses typically last 4 — 7 days.",
+      "price": 6.75,
+      "img": "https://aboutflowers.com/wp-content/uploads/2017/01/AboutFlowers_Flower_Black-Peral-Standard-Rose-RosaprimaInternational.jpg"
     }
   ]
 }
