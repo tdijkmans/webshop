@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AddToCart from "./AddToCart";
 
 export default function Product(props) {
   const tags = props.tags.map((t) => <div>{t}</div>);
@@ -17,7 +18,7 @@ export default function Product(props) {
         alt={props.name}
         style={{ width: 200, height: 200 }}
       />
-      TO DO : ADD TO CART
+      <AddToCart id={props.id} />
     </div>
   );
 }

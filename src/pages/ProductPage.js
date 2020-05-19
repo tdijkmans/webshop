@@ -1,12 +1,26 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import AddToCart from "../components/AddToCart";
 
 export default function ProductPage() {
   const { id } = useParams();
+
+  const flower = useSelector(selectFlowerById);
+
   return (
     <div>
-      <h1>Hello from Product Page</h1>
-      <h2>This page is about product {id}</h2>
+      <h1>{flower.name}</h1>
+      <h2>{flower.price}</h2>
+      <h2>{flower.tags}</h2>
+      <h2>{flower.description}</h2>
+      <img
+        src={flower.img}
+        alt={flower.name}
+        style={{ width: 200, height: 200 }}
+      />
+
+      <AddToCart id={id} />
     </div>
   );
 }
