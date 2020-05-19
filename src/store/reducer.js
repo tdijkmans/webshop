@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import flowersSliceReducer from "./user/reducer";
-import cartSliceReducer from "./resources/reducer";
+import flowersSliceReducer from "./products/reducer";
+import cartSliceReducer from "./cart/reducer";
 
 const reducer = combineReducers({
   flowers: flowersSliceReducer,
