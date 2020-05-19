@@ -8,6 +8,7 @@ export default function ProductPage() {
   const { id } = useParams();
 
   const flower = useSelector(selectFlowerById(id));
+  console.log(`flower:`, flower);
 
   return (
     <div>
