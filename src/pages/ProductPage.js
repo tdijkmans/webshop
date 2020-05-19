@@ -2,11 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import AddToCart from "../components/AddToCart";
+import { selectFlowerById } from "../store/products/selectors";
 
 export default function ProductPage() {
   const { id } = useParams();
 
-  const flower = useSelector(selectFlowerById);
+  const flower = useSelector(selectFlowerById(id));
 
   return (
     <div>
