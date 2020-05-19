@@ -1,18 +1,15 @@
 import React from "react";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-} from "react-router-dom";
+import { BrowserRouter as Switch, Route, NavLink } from "react-router-dom";
+import ProductPage from "./pages/ProductPage";
+import CartPage from "./pages/CartPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <div className="App">
       <NavLink
-        to="/"
+        to="/home"
         activeStyle={{
           fontWeight: "bold",
           color: "red",
@@ -31,7 +28,17 @@ function App() {
         2 products in cart
       </NavLink>
 
-      <Switch></Switch>
+      <Switch>
+        <Route path="/home">
+          <HomePage />
+        </Route>
+        <Route path="/product/:id">
+          <ProductPage />
+        </Route>
+        <Route path="/cart">
+          <CartPage />
+        </Route>
+      </Switch>
     </div>
   );
 }
