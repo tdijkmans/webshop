@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAmountOfFlower } from "../store/cart/selectors";
-import Table from "react-bootstrap/Table";
 
 export default function InCartProduct(props) {
   console.log(`the prop`, props.prop);
