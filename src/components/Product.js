@@ -5,9 +5,15 @@ import Table from "react-bootstrap/Table";
 import { flowerInCartCheck } from "../store/cart/selectors";
 import { useSelector } from "react-redux";
 import AmountCalculator from "../components/AmountCalculator";
+import Card from "react-bootstrap/Card";
+import Badge from "react-bootstrap/Badge";
 
 export default function Product(props) {
-  const tags = props.tags.map((t) => <div key={t}>{t}</div>);
+  const tags = props.tags.map((t) => (
+    <Badge pill variant="primary" key={t}>
+      {t}
+    </Badge>
+  ));
   const id = props.id;
   const flowerInCart = useSelector(flowerInCartCheck(id));
 
@@ -34,19 +40,17 @@ export default function Product(props) {
   );
 
   return (
-    <div className="product-card">
-      <Link to={`product/${props.id}`}>
-        <h3>{props.name}</h3>
-      </Link>
-      {tags}
-      <h4>Price: € {props.price}</h4>
-      <h4>Sold: {props.sold}</h4>
-      <img
-        src={props.img}
-        alt={props.name}
-        style={{ width: 200, height: 200 }}
-      />
-      <div className="cart-container">{cartContainer}</div>
-    </div>
+    <Card className="product-card" style={{ width: "18rem" }}>
+      <Card.Img variant="top" src={props.img} alt={props.name} />
+      <Card.Body>
+        <Link to={`product/${props.id}`}>
+          <Card.Title>{props.name}</Card.Title>
+        </Link>
+        <Card.Text>Price: € {props.price}</Card.Text>
+        <Card.Text>Times sold: {props.sold}</Card.Text>
+      </Card.Body>
+      <Card.Body>{tags}</Card.Body>
+      <Card.Body className="cart-container">{cartContainer}</Card.Body>
+    </Card>
   );
 }

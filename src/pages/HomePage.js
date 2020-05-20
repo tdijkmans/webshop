@@ -8,6 +8,7 @@ import {
   selectFlowersLowHighPop,
 } from "../store/products/selectors";
 import Product from "../components/Product";
+import CardDeck from "react-bootstrap/CardDeck";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -54,8 +55,7 @@ export default function HomePage() {
       <h3>TODO sort by price | popularity</h3>
       <button onClick={sortPrice}>Sort price</button>
       <button onClick={sortPopular}>Sort popular</button>
-
-      {flowerList}
+      <CardDeck>{flowerList}</CardDeck>
     </div>
   );
 }
