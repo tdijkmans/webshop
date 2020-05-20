@@ -20,6 +20,7 @@ export default function HomePage() {
       price={flower.price}
       img={flower.img}
       tags={flower.tags}
+      id={flower.id}
     />
   ));
 
