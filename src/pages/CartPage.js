@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectItemsInCart, selectTotalPriceInCart } from "../store/selectors";
 import { selectNothingInCart } from "../store/cart/selectors";
@@ -7,12 +7,17 @@ import InCartProduct from "../components/InCartProduct";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import { fetchData } from "../store/products/actions";
 
 export default function CartPage() {
   const dispatch = useDispatch();
   const nothingInCart = useSelector(selectNothingInCart);
   const flowersInCart = useSelector(selectItemsInCart);
   const totalPrice = useSelector(selectTotalPriceInCart);
+
+  useEffect(() => {
+    dispatch(fetchData);
+  }, [dispatch]);
 
   function sortID(a, b) {
     return a.id - b.id;

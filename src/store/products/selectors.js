@@ -35,3 +35,7 @@ export const selectFlowersHighLowPop = (state) => {
   }
   return state.flowers.products.sort(flowersHighLow);
 };
+
+export const selectLoadStatus = (state) => {
+  return state.flowers.loading;
+};

@@ -6,3 +6,21 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.product-page .cart-container {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.product-card .cart-container {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.product-page .cart-container .in-cart {
+  margin: auto;
+}
