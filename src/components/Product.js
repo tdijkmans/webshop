@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import AmountCalculator from "../components/AmountCalculator";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
+import Alert from "react-bootstrap/Alert";
 
 export default function Product(props) {
   const tags = props.tags.map((t) => (
@@ -21,7 +22,6 @@ export default function Product(props) {
     <AddToCart id={id} />
   ) : (
     <>
-      <AddToCart id={id} />
       <Table striped bordered hover className="in-cart">
         <thead>
           <tr>

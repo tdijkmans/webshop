@@ -7,6 +7,7 @@ import { fetchFlower } from "../store/product/actions";
 import AmountCalculator from "../components/AmountCalculator";
 import { flowerInCartCheck } from "../store/cart/selectors";
 import Table from "react-bootstrap/Table";
+import Alert from "react-bootstrap/Alert";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -24,7 +25,9 @@ export default function ProductPage() {
     <AddToCart id={id} />
   ) : (
     <>
-      <AddToCart id={id} />
+      <Alert key={id} variant="success">
+        Already in your cart!
+      </Alert>
       <Table striped bordered hover className="in-cart">
         <thead>
           <tr>
