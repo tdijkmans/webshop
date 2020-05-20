@@ -12,6 +12,7 @@ export default function Product(props) {
       </Link>
       {tags}
       <h4>Price: € {props.price}</h4>
+      <h4>Sold: {props.sold}</h4>
       <img
         src={props.img}
         alt={props.name}
