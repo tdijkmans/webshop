@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AddToCart from "./AddToCart";
 
 export default function Product(props) {
-  const tags = props.tags.map((t) => <div>{t}</div>);
+  const tags = props.tags.map((t) => <div key={t}>{t}</div>);
 
   return (
     <div>

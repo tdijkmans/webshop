@@ -6,7 +6,7 @@ import { addToCart } from "../store/cart/actions";
 import Alert from "react-bootstrap/Alert";
 
 export default function AddToCart(props) {
-  const id = props.id;
+  const id = parseInt(props.id);
   const dispatch = useDispatch();
   const [amount, setAmount] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
@@ -24,7 +24,6 @@ export default function AddToCart(props) {
           <Form.Label>Amount</Form.Label>
           <Form.Control
             type="number"
-            defaultValue="1"
             value={amount}
             onChange={(e) => {
               setAmount(e.target.value);
