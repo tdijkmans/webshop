@@ -4,3 +4,15 @@ export function addToCart(id, amount) {
     payload: { productId: id, amount: parseInt(amount) },
   };
 }
+
+export function emptyCart() {
+  return { type: "EMPTY_CART", payload: true };
+}
+
+export function doPlusOne(id) {
+  return { type: "PLUS_ONE", payload: id };
+}
+
+export function doMinusOne(id) {
+  return { type: "MINUS_ONE", payload: id };
+}
