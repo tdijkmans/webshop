@@ -10,7 +10,6 @@ import { selectNumberOfProductsInCart } from "../store/cart/selectors";
 
 export default function Navigation() {
   const numberItemsInCart = useSelector(selectNumberOfProductsInCart);
-  console.log(`#items in cart`, numberItemsInCart);
 
   return (
     <NavBar bg="light" className="navbar" expand="lg">
