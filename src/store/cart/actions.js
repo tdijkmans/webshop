@@ -4,3 +4,7 @@ export function addToCart(id, amount) {
     payload: { productId: id, amount: parseInt(amount) },
   };
 }
+
+export function emptyCart() {
+  return { type: "EMPTY_CART", payload: true };
+}

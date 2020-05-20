@@ -41,6 +41,9 @@ export default function cartSliceReducer(state = initialState, action) {
           inCart: [...state.inCart, action.payload],
         };
     }
+    case "EMPTY_CART": {
+      return { nothingInCart: true, inCart: [] };
+    }
     default: {
       return state;
     }
