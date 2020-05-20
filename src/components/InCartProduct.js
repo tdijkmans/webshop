@@ -27,7 +27,7 @@ export default function InCartProduct(props) {
       <td>
         <Link to={`product/${id}`}>{name} </Link>
       </td>
-      <td>
+      <td className="amount">
         <Button onClick={plusOne} variant="success">
           +
         </Button>

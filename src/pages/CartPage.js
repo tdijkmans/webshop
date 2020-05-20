@@ -14,9 +14,13 @@ export default function CartPage() {
   const flowersInCart = useSelector(selectItemsInCart);
   const totalPrice = useSelector(selectTotalPriceInCart);
 
-  const cartList = flowersInCart.map((flower) => (
-    <InCartProduct key={flower.id} prop={flower} />
-  ));
+  function sortID(a, b) {
+    return a.id - b.id;
+  }
+
+  const cartList = flowersInCart
+    .sort(sortID)
+    .map((flower) => <InCartProduct key={flower.id} prop={flower} />);
 
   const handleEmpty = (e) => {
     e.preventDefault();
