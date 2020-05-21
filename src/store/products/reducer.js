@@ -2,6 +2,7 @@ const initialState = {
   loading: true,
   products: [],
   sortOrder: "Ascending Price",
+  filtertags: [],
 };
 
 export default function flowersSliceReducer(state = initialState, action) {
@@ -15,6 +16,10 @@ export default function flowersSliceReducer(state = initialState, action) {
 
     case "SET_PRODUCTS_SORT": {
       return { ...state, sortOrder: action.payload };
+    }
+
+    case "ADD_FILTER_TAG": {
+      return { ...state, filtertags: [...action.payload] };
     }
 
     default: {

@@ -19,3 +19,7 @@ export async function fetchData(dispatch, getState) {
 export function setSortOrder(sortOrder) {
   return { type: "SET_PRODUCTS_SORT", payload: sortOrder };
 }
+
+export function addFilterTag(tag) {
+  return { type: "ADD_FILTER_TAG", payload: tag };
+}
