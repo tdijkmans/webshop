@@ -1,5 +1,33 @@
+export const selectLoadStatus = (state) => {
+  return state.flowers.loading;
+};
+
+export const selectSortOrder = (state) => {
+  return state.flowers.sortOrder;
+};
+
 export const selectFlowers = (state) => {
-  return state.flowers.products;
+  const sortOrder = state.flowers.sortOrder;
+  switch (sortOrder) {
+    case "Ascending Price":
+      return state.flowers.products.sort((a, b) => {
+        return a.price - b.price;
+      });
+    case "Descending Price":
+      return state.flowers.products.sort((a, b) => {
+        return b.price - a.price;
+      });
+    case "Ascending Popularity":
+      return state.flowers.products.sort((a, b) => {
+        return a.sold - b.sold;
+      });
+    case "Descending Popularity":
+      return state.flowers.products.sort((a, b) => {
+        return b.sold - a.sold;
+      });
+    default:
+      return state.flowers.products;
+  }
 };
 
 export const selectFlowerById = (id) => (state) => {
@@ -8,39 +36,8 @@ export const selectFlowerById = (id) => (state) => {
   );
 };
 
-export const selectFlowersLowHighPrice = (state) => {
-  function flowersLowHigh(a, b) {
-    return a.price - b.price;
-  }
-  return state.flowers.products.sort(flowersLowHigh);
-};
-
-export const selectFlowersHighLowPrice = (state) => {
-  function flowersHighLow(a, b) {
-    return b.price - a.price;
-  }
-  return state.flowers.products.sort(flowersHighLow);
-};
-
-export const selectFlowersLowHighPop = (state) => {
-  function flowersLowHigh(a, b) {
-    return a.sold - b.sold;
-  }
-  return state.flowers.products.sort(flowersLowHigh);
-};
-
-export const selectFlowersHighLowPop = (state) => {
-  function flowersHighLow(a, b) {
-    return b.sold - a.sold;
-  }
-  return state.flowers.products.sort(flowersHighLow);
-};
-
 export const selectFlowersTags = (state) => {
   let tags = [];
   state.flowers.products.map((p) => p.tags.map((t) => tags.push(t)));
   return tags;
-};
-export const selectLoadStatus = (state) => {
-  return state.flowers.loading;
 };

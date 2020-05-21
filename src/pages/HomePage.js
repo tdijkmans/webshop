@@ -1,14 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { fetchData } from "../store/products/actions";
+import React, { useEffect } from "react";
+import { fetchData, setSortOrder } from "../store/products/actions";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectFlowersHighLowPrice,
-  selectFlowersLowHighPrice,
-  selectFlowersHighLowPop,
-  selectFlowersLowHighPop,
-  selectFlowers,
-  selectFlowersTags,
-} from "../store/products/selectors";
+import { selectFlowers, selectFlowersTags } from "../store/products/selectors";
 import Product from "../components/Product";
 import Dropdown from "react-bootstrap/Dropdown";
 import Badge from "react-bootstrap/Badge";
@@ -16,34 +9,15 @@ import CardDeck from "react-bootstrap/CardDeck";
 
 export default function HomePage() {
   const dispatch = useDispatch();
-  const [priceAscending, setPriceAscending] = useState(true);
-  const [soldAscending, setSoldAscending] = useState(true);
 
   useEffect(() => {
     dispatch(fetchData);
   }, [dispatch]);
 
   const flowers = useSelector(selectFlowers);
-  console.log(flowers);
 
-  function sortPrice() {
-    setPriceAscending(!priceAscending);
-  }
-
-  const sortedFlowersByPrice = useSelector(
-    priceAscending ? selectFlowersLowHighPrice : selectFlowersHighLowPrice
-  );
-
-  function sortPopular() {
-    setSoldAscending(!soldAscending);
-  }
-
-  const sortedFlowersByPop = useSelector(
-    soldAscending ? selectFlowersLowHighPop : selectFlowersHighLowPop
-  );
-
-  function handleSort(event) {
-    console.log("handelsort", event);
+  function handleSelect(e) {
+    dispatch(setSortOrder(e));
   }
 
   const flowerTags = useSelector(selectFlowersTags).map((t) => (
@@ -52,7 +26,7 @@ export default function HomePage() {
     </Badge>
   ));
 
-  const flowerList = sortedFlowersByPrice.map((flower) => (
+  const flowerList = flowers.map((flower) => (
     <Product
       name={flower.name}
       key={flower.id}
@@ -66,21 +40,25 @@ export default function HomePage() {
 
   return (
     <div>
-      Buy yourself some happiness, why don't you?
-      <button onClick={sortPrice}>Sort price</button>
-      <button onClick={sortPopular}>Sort popular</button>
-      <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Dropdown Button
-        </Dropdown.Toggle>
+      <h4>Buy yourself some happiness, why don't you?</h4>
 
+      <Dropdown onSelect={handleSelect}>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Change Sort Order
+        </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item onSelect={handleSort} href="#/action-1">
+          <Dropdown.Item eventKey="Ascending Price">
             Ascending Price
           </Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Descending Price</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Ascending Popularity</Dropdown.Item>
-          <Dropdown.Item href="#/action-1">Decending Popularity</Dropdown.Item>
+          <Dropdown.Item eventKey="Descending Price">
+            Descending Price
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="Ascending Popularity">
+            Ascending Popularity
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="Descending Popularity">
+            Descending Popularity
+          </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       <hr></hr>

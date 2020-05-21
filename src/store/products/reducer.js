@@ -1,4 +1,8 @@
-const initialState = { loading: true, products: [] };
+const initialState = {
+  loading: true,
+  products: [],
+  sortOrder: "Ascending Price",
+};
 
 export default function flowersSliceReducer(state = initialState, action) {
   switch (action.type) {
@@ -6,8 +10,13 @@ export default function flowersSliceReducer(state = initialState, action) {
       return { ...state, loading: action.payload };
     }
     case "LOAD_COMPLETE": {
-      return { loading: false, products: action.payload };
+      return { ...state, loading: false, products: action.payload };
     }
+
+    case "SET_PRODUCTS_SORT": {
+      return { ...state, sortOrder: action.payload };
+    }
+
     default: {
       return state;
     }

@@ -15,3 +15,7 @@ export async function fetchData(dispatch, getState) {
   const newData = data.data;
   dispatch(dataFetched(newData));
 }
+
+export function setSortOrder(sortOrder) {
+  return { type: "SET_PRODUCTS_SORT", payload: sortOrder };
+}

@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import AmountCalculator from "../components/AmountCalculator";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
-import Alert from "react-bootstrap/Alert";
 
 export default function Product(props) {
   const tags = props.tags.map((t) => (
