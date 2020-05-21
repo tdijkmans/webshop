@@ -10,12 +10,9 @@ import {
   selectFlowersTags,
 } from "../store/products/selectors";
 import Product from "../components/Product";
-<<<<<<< HEAD
 import Dropdown from "react-bootstrap/Dropdown";
 import Badge from "react-bootstrap/Badge";
-=======
 import CardDeck from "react-bootstrap/CardDeck";
->>>>>>> 2c32e58cbe7448120158d0a066d02544c2849b26
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -90,7 +87,6 @@ export default function HomePage() {
       {flowerTags}
       <h3>TODO filter by tag | tag |tag </h3>
       <hr></hr>
-      {flowerList}
       <CardDeck>{flowerList}</CardDeck>
     </div>
   );
