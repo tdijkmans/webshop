@@ -1,26 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectAmountOfFlower } from "../store/cart/selectors";
-import { doMinusOne, doPlusOne } from "../store/cart/actions";
-import Button from "react-bootstrap/Button";
+import AmountCalculator from "../components/AmountCalculator";
 
 export default function InCartProduct(props) {
-  const dispatch = useDispatch();
   const { name, id, price } = props.prop;
 
   const amount = useSelector(selectAmountOfFlower(id));
   const total = amount * price;
-
-  const plusOne = (e) => {
-    e.preventDefault();
-    dispatch(doPlusOne(id));
-  };
-
-  const minusOne = (e) => {
-    e.preventDefault();
-    dispatch(doMinusOne(id));
-  };
 
   return (
     <tr>
@@ -28,13 +16,7 @@ export default function InCartProduct(props) {
         <Link to={`product/${id}`}>{name} </Link>
       </td>
       <td className="amount">
-        <Button onClick={plusOne} variant="success">
-          +
-        </Button>
-        {amount}
-        <Button onClick={minusOne} variant="danger">
-          -
-        </Button>
+        <AmountCalculator id={id} />
       </td>
       <td>€{price}</td>
       <td>€{total}</td>

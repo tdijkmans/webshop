@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import AddToCart from "../components/AddToCart";
 import { selectFlower, selectLoadStatus } from "../store/product/selectors";
 import { fetchFlower } from "../store/product/actions";
+import AmountCalculator from "../components/AmountCalculator";
+import { flowerInCartCheck } from "../store/cart/selectors";
+import Table from "react-bootstrap/Table";
+import Alert from "react-bootstrap/Alert";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -15,6 +19,31 @@ export default function ProductPage() {
 
   const flower = useSelector(selectFlower);
   const loading = useSelector(selectLoadStatus);
+  const flowerInCart = useSelector(flowerInCartCheck(id));
+
+  const cartContainer = !flowerInCart ? (
+    <AddToCart id={id} />
+  ) : (
+    <>
+      <Alert key={id} variant="success">
+        Already in your cart!
+      </Alert>
+      <Table striped bordered hover className="in-cart">
+        <thead>
+          <tr>
+            <th>{flower.name}(s) in your cart:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="amount">
+              <AmountCalculator id={id} />
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+    </>
+  );
 
   let flowerDetails;
   if (loading) {
@@ -38,9 +67,9 @@ export default function ProductPage() {
   }
 
   return (
-    <div>
+    <div className="product-page">
       {flowerDetails}
-      <AddToCart id={id} />
+      <div className="cart-container">{cartContainer}</div>
     </div>
   );
 }

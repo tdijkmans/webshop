@@ -1,7 +1,7 @@
 export function addToCart(id, amount) {
   return {
     type: "ADD_TO_CART",
-    payload: { productId: id, amount: parseInt(amount) },
+    payload: { productId: parseInt(id), amount: parseInt(amount) },
   };
 }
 
@@ -10,9 +10,9 @@ export function emptyCart() {
 }
 
 export function doPlusOne(id) {
-  return { type: "PLUS_ONE", payload: id };
+  return { type: "PLUS_ONE", payload: parseInt(id) };
 }
 
 export function doMinusOne(id) {
-  return { type: "MINUS_ONE", payload: id };
+  return { type: "MINUS_ONE", payload: parseInt(id) };
 }

@@ -40,4 +40,6 @@ export const selectFlowersTags = (state) => {
   let tags = [];
   state.flowers.products.map((p) => p.tags.map((t) => tags.push(t)));
   return tags;
+export const selectLoadStatus = (state) => {
+  return state.flowers.loading;
 };
